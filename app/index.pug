@@ -1,0 +1,90 @@
+doctype html
+html(lang="en")
+  include partials/head
+  body
+    include partials/header
+    include partials/mixins
+    
+    .wrapper
+      .row
+        .side-container.column-desktop-1-4.column-laptop-1-4.m-b-30
+          .row
+            -
+              var menuArr = [
+              {
+                name: "ЦИФРОВОЕ",
+                sublist: ["HP INDIGO 5500", "KONICA MINOLTA 6000L", "RISO COMCOLOR 7050, RISO COMOLOR 7010"]
+              },
+              {
+                name: "ОФСЕТНОЕ",
+                sublist: ["HP INDIGO 5500", "KONICA MINOLTA 6000L", "RISO COMCOLOR 7050, RISO COMOLOR 7010"]
+              },
+              {
+                name: "ПЕРЕМЕННЫЕ ДАННЫЕ",
+                sublist: ["HP INDIGO 5500", "KONICA MINOLTA 6000L", "RISO COMCOLOR 7050, RISO COMOLOR 7010"]
+              },
+              {
+                name: "ШТРИХ-КОДИРОВАНИЕ",
+                sublist: ["HP INDIGO 5500", "KONICA MINOLTA 6000L", "RISO COMCOLOR 7050, RISO COMOLOR 7010"]
+              },
+              {
+                name: "ОТДЕЛОЧНОЕ",
+                sublist: ["HP INDIGO 5500", "KONICA MINOLTA 6000L", "RISO COMCOLOR 7050, RISO COMOLOR 7010", "setriklsd"]
+              },
+              ]
+            .side-menu-container.column-desktop-1-1.column-laptop-1-1.column-tablet-1-2.column-phablet-1-1
+              .block-title ПРОИЗВОДСТВО
+              .side-menu
+                ul
+                  each arritem in menuArr
+                    +sideMenu(arritem)
+            -
+              var newsArr = [
+                {
+                  date: "18.08.2014",
+                  text: "Начал работу новый формный участок на основе CTP AGFA Palladio II, производительностью 150 форм в смену"
+                },
+                {
+                  date: "18.08.2014",
+                  text: "Начал работу новый формный участок на основе CTP AGFA Palladio II, производительностью 150 форм в смену. Начал работу новый формный участок на основе CTP AGFA Palladio II, производительностью 150 форм в смену"
+                },
+                {
+                  date: "18.08.2014",
+                  text: "Начал работу новый формный участок на основе CTP AGFA Palladio II, производительностью 150 форм в смену"
+                }
+              ]
+            .news-container.column-desktop-1-1.column-laptop-1-1.column-tablet-1-2.column-phablet-1-1
+              .block-title НОВОСТИ
+              .news-block
+              each item in newsArr
+                +news(item)
+        .column-desktop-3-4.column-laptop-3-4
+          .slider-container
+            .row
+              .column-laptop-1-1.column-desktop-1-1
+                include partials/slider
+          .row
+            -
+              var cardArr = [
+                "ЦИФРОВАЯ ПЕЧАТЬ",
+                "ОФСЕТНАЯ ПЕЧАТЬ",
+                "ФИНИШНАЯ ОБРАБОТКА",
+                "ДИЗАЙН, ВЕРСТКА, КОРРЕКТУРА, ПЕРЕВОД",
+                "КАТАЛОГ ВЫСТАВКИ",
+                "ПЕРЕМЕННЫЕ ДАННЫЕ, ШТРИХ-КОДИРОВАНИЕ"
+              ]
+            each item, index in cardArr
+              - var tempIndex = index + 1
+              - var tempObj = {img: "card-img-"+tempIndex+".png", title: item}
+                +card(tempObj, tempIndex)
+          .block-title.kat КАТАЛОГ
+      .row
+        -
+          var prodNames = ["листовая продукция", "Фотоальбомы", "Буклеты", "Брошюры", "Визитки", "Календари", "Конверты", "Папки", "Наклейки, этикетки", "Самокопиры"];
+        each item, index in prodNames
+          - var tempIndex1 = index + 1
+          - var tempObj = {img: "product-"+tempIndex1+".png", title: item}
+          +product(tempObj, tempIndex1)
+          
+          
+    include partials/footer

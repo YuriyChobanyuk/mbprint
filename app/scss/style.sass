@@ -1,0 +1,386 @@
+@import 'vars'
+@import 'grid'
+@import 'mixins'
+
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+html
+  height: 100%
+
+body
+  min-height: 100%
+  font-size: 14px
+  font-family: "Arial", sans-serif
+
+.header
+  background-image: url("../img/main-bg.png")
+  padding-top: 20px
+  margin-bottom: $v-step
+  min-height: 168px
+
+  .header-top
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    margin-bottom: 20px
+
+    div
+      display: flex
+      flex-wrap: wrap
+      align-items: flex-end
+
+    &__title
+
+      &_logo
+
+        img
+          display: block
+
+      &_text
+        margin-top: 20px
+        margin-left: 20px
+        text-transform: uppercase
+        color: white
+
+    &__contacts
+      margin-top: 20px
+
+      &_icon
+        margin-right: 20px
+
+        img
+          display: block
+          height: 30px
+          margin-bottom: 5px
+
+      &_phone
+        color: white
+        text-decoration: none
+
+        .second-part
+          font-size: 30px
+
+.side-menu-container
+  margin-bottom: $v-step
+
+.side-menu
+
+  ul
+    list-style-type: none
+
+    li:nth-child(2n)
+      background-color: #f4f3f3
+
+    li
+      position: relative
+      z-index: 3
+
+      .list-item
+        display: flex
+        justify-content: space-between
+        position: relative
+        z-index: 3
+
+        a
+          display: block
+          padding: 15px
+          text-decoration: none
+          color: #8c8c8c
+          text-transform: uppercase
+          flex: 1 1 auto
+
+        .sub-menu-opener
+          max-width: 15%
+          min-width: 40px
+          margin: auto
+          flex: 1 1 auto
+
+          img
+            display: block
+            max-width: 30px
+            transition: .5s ease all
+
+      ul
+        transition: .5s ease all
+        position: relative
+        top: -100%
+        z-index: 1
+        overflow: hidden
+        height: 0
+
+        li:nth-child(2n)
+          background-color: #fce7e7
+
+        li
+          background-color: #fce7e7
+
+          a
+            display: block
+            padding: 15px
+            text-decoration: none
+            color: #8c8c8c
+            text-transform: uppercase
+            padding-left: 20px
+
+
+.news
+  display: block
+  text-decoration: none
+  padding: 30px 0
+  border-bottom: 1px solid #740311
+
+  &__date
+    color: #740311
+    font-size: 18px
+
+    span
+      color: #8c8c8c
+
+  &__text
+    color: #434343
+    margin-top: 5px
+
+.is-visible
+  top: 0px !important
+
+.row
+
+  .card:nth-child(3n+1)
+    .card__title
+      background-color: #f64801
+
+  .card:nth-child(3n+2)
+    .card__title
+      background-color: #ff9d0f
+
+  .card:nth-child(3n+3)
+    .card__title
+      background-color: #ffc034
+
+  .card
+    display: flex
+    flex-direction: column
+    +breakpoint('phablet')
+      min-height: 50px
+    text-decoration: none
+
+    &__title
+      margin-top: auto
+      display: flex
+      min-height: 50px
+      align-items: center
+      padding-left: 20px
+      color: white
+
+    &__img
+      flex-grow: 1
+      font-size: 0
+
+      img
+        height: 100%
+        width: 100%
+        filter: grayscale(100%)
+        transition: .5s
+
+  .card:hover
+    img
+      filter: none
+
+.margin-card
+  margin: 0 -2px
+
+.block-title
+  display: flex
+  min-height: 50px
+  align-items: center
+  padding-left: 20px
+  color: white
+  background-color: #740311
+  font-size: 18px
+
+
+.m-t-30
+  margin-top: 30px
+
+@import 'slider'
+
+.default
+  position: relative
+
+.fixed
+  position: fixed !important
+  top: 0
+  width: 100%
+  max-width: $content-width - $gutter
+  margin: auto
+  z-index: 10
+
+.menuOpener
+  width: 40px
+  height: 40px
+  background-color: lightblue
+  display: flex
+  flex-direction: column
+  position: fixed
+  top: 100%
+  right: 100%
+  justify-content: space-around
+  padding: 6px
+  border-radius: 5px
+  z-index: 12
+
+  span
+    height: 5px
+    background-color: white
+
+.main-nav
+  transition: 0.5s ease all
+  position: relative
+
+  ul
+    display: flex
+    flex-wrap: wrap
+    list-style-type: none
+
+    li
+      flex: 1 1 auto
+      border: 1px solid #c6c6c6
+
+      a
+        position: relative
+        text-decoration: none
+        background-color: #b9b3b3
+        display: block
+        padding: 20px 0
+        color: #151515
+        font-size: 18px
+        text-align: center
+        text-transform: uppercase
+
+        p
+          position: relative
+          z-index: 2
+
+        span
+          z-index: 0
+          position: absolute
+          display: block
+          width: 34%
+          height: 50%
+          transition: .5s ease-in all
+          background-color: white
+          border: none
+          opacity: 0
+          transform: scale(0.5)
+
+        .test1
+          top: 50%
+
+        .test2
+          top: 50%
+          left: 33.33%
+
+        .test3
+          top: 50%
+          left: 66.66%
+
+        .test4
+          top: 0%
+          left: 66.66%
+
+        .test5
+          top: 0%
+          left: 33.33%
+
+        .test6
+          top: 0%
+
+        @for $i from 1 through 6
+          .test#{$i}
+            transition-delay: .1s * $i
+
+      a:hover
+        span
+          opacity: 1
+          transform: scale(1)
+
+.kat
+  margin-top: $v-step
+  max-width: 100%
+  margin-bottom: auto
+
+.product
+  flex-direction: column
+  text-decoration: none
+  text-transform: uppercase
+  position: relative
+  margin-bottom: -48px
+  margin-top: $v-step
+  overflow: hidden
+
+
+  &__img
+    min-height: 270px
+    display: flex
+    background-color: #e2e2e2
+
+    img
+      display: block
+      max-width: 270px
+      margin: auto
+      overflow: hidden
+  &__title
+    display: block
+    background-color: rgba(108, 108, 108, 0.8)
+    padding: 15px
+    position: relative
+    top: -47px
+    text-decoration: none
+    color: white
+
+.footer
+  background-color: #740311
+  flex-wrap: wrap
+  justify-content: space-between
+  padding: 20px 0
+  margin-top: $v-step
+
+.footer-row
+  justify-content: space-between
+  align-items: center
+
+.footer__menu
+  margin-right: 15px
+
+  .footer__nav
+
+    ul
+      display: flex
+      flex-wrap: wrap
+      list-style-type: none
+
+      li
+
+        a
+          font-size: 14px
+          text-decoration: none
+          text-transform: uppercase
+          color: #af5b5b
+          display: block
+          padding: 15px 5px
+
+.m-b-30
+  margin-bottom: $v-step
+
+
+@import 'breakpoints'
+
+.show
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 11
+  width: 100%

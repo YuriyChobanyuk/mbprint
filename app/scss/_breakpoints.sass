@@ -1,0 +1,28 @@
++breakpoint('mobile')
+  .footer__menu
+    order: -1
+
+  .footer__nav
+
+    ul
+      flex-direction: column
+
+      li
+
+        a
+          display: block
+          text-align: center
+
+@media (max-width: 1025px)
+  .menuOpener
+    top: 30px
+    right: 30px
+
+  .main-nav
+    position: fixed
+    left: 0
+    top: calc(-100% - 300px)
+    width: 100%
+
+    ul
+      flex-direction: column

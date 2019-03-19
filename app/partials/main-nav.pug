@@ -1,0 +1,10 @@
+-
+  var menuItems = ["Главная", "Kаталог", "Услуги", "Производство", "Новости", "Поддержка", "Технологии", "Контакты"];
+nav.main-nav.default#menu
+  ul
+    each item in menuItems
+      li
+        a(href="#") 
+          p #{item}
+          each elem in '123456'
+            span(class="test"+elem)
