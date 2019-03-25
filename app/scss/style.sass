@@ -19,7 +19,7 @@ body
   background-image: url("../img/main-bg.png")
   padding-top: 20px
   margin-bottom: $v-step
-  min-height: 168px
+  min-height: 167px
 
   .header-top
     display: flex
@@ -127,10 +127,12 @@ body
 
 
 .news
-  display: block
-  text-decoration: none
   padding: 30px 0
   border-bottom: 1px solid #740311
+
+  a
+    display: block
+    text-decoration: none
 
   &__date
     color: #740311
@@ -148,23 +150,26 @@ body
 
 .row
 
-  .card:nth-child(3n+1)
-    .card__title
-      background-color: #f64801
+  .m-b-30:nth-child(3n+1)
+    .card
+      .card__title
+        background-color: #f64801
 
-  .card:nth-child(3n+2)
-    .card__title
-      background-color: #ff9d0f
+  .m-b-30:nth-child(3n+2)
+    .card
+      .card__title
+        background-color: #ff9d0f
 
-  .card:nth-child(3n+3)
-    .card__title
-      background-color: #ffc034
+  .m-b-30:nth-child(3n+3)
+    .card
+      .card__title
+        background-color: #ffc034
 
   .card
     display: flex
+    flex-wrap: wrap
     flex-direction: column
-    +breakpoint('phablet')
-      min-height: 50px
+    height: 100%
     text-decoration: none
 
     &__title
@@ -172,7 +177,7 @@ body
       display: flex
       min-height: 50px
       align-items: center
-      padding-left: 20px
+      padding: 5px 20px
       color: white
 
     &__img
@@ -308,7 +313,6 @@ body
           transform: scale(1)
 
 .kat
-  margin-top: $v-step
   max-width: 100%
   margin-bottom: auto
 
@@ -317,7 +321,6 @@ body
   text-decoration: none
   text-transform: uppercase
   position: relative
-  margin-bottom: -48px
   margin-top: $v-step
   overflow: hidden
 
@@ -332,12 +335,14 @@ body
       max-width: 270px
       margin: auto
       overflow: hidden
+
   &__title
     display: block
+    width: 100%
     background-color: rgba(108, 108, 108, 0.8)
     padding: 15px
-    position: relative
-    top: -47px
+    position: absolute
+    top: calc(100% - 47px)
     text-decoration: none
     color: white
 
@@ -384,3 +389,10 @@ body
   left: 0
   z-index: 11
   width: 100%
+  display: flex
+  flex-wrap: wrap
+  overflow: auto
+  height: 300px
+
+  ul
+    width: 100%

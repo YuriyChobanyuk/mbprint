@@ -1,19 +1,21 @@
 mixin card(item, index)
-  a.card.m-t-30.column-desktop-1-3.column-laptop-1-3.column-tablet-1-3.column-phablet-1-2.column-mobile-1-2(href="#")
-    .card__img
-      img(src="img/"+item.img alt="card img")
-    .card__title
-      |#{item.title}
+  .column-desktop-1-3.column-laptop-1-3.column-tablet-1-3.column-phablet-1-2.column-mobile-1-2.m-b-30
+    a(href="#").card
+      .card__img
+        img(src="img/"+item.img alt="card img")
+      .card__title
+        |#{item.title}
           
 
 mixin news(item)
-  a.news(href="#")
+  .news
     -var dateArr = item.date.split(".")
-    .news__date
-      |#{dateArr[0]}.#{dateArr[1]}.
-      span #{dateArr[2]}
-    .news__text
-      |#{item.text}
+    a(href="#")
+      .news__date
+        |#{dateArr[0]}.#{dateArr[1]}.
+        span #{dateArr[2]}
+      .news__text
+        |#{item.text}
 
 mixin sideMenu(item)
   li
@@ -27,8 +29,9 @@ mixin sideMenu(item)
           a(href="#") #{elem}
         
 mixin product(item)
-  .product.column-desktop-1-4.column-phablet-1-2.column-tablet-1-3.column-laptop-1-3.column-mobileonly-1-1(href="#")
-    a.product__img(href="#")
-      img(src="img/"+item.img alt="product img")
-    a.product__title(href="#")
-      |#{item.title}
+  .column-desktop-1-4.column-phablet-1-2.column-tablet-1-3.column-laptop-1-3.column-mobileonly-1-1(href="#")
+    .product
+      a.product__img(href="#")
+        img(src="img/"+item.img alt="product img")
+      a.product__title(href="#")
+        |#{item.title}

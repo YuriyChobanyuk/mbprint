@@ -6,6 +6,20 @@ var menuOpener = document.querySelector(".menuOpener");
 
 function goToSlide(index, side) {
   var currentIndex = [].indexOf.call(slides, element.querySelector('.is-active'));
+  pinarr = document.querySelectorAll('.pin-dot');
+  console.log(pinarr);
+
+  [].forEach.call(pinarr, function(item){
+    item.classList.remove('active-pin');
+  });
+
+  [].forEach.call(pinarr, function(item){
+    if([].indexOf.call(pinarr, item) == index){
+      item.classList.add('active-pin');
+    };
+  });
+
+
 
   [].forEach.call(slides, function(item) {
     item.classList.remove('is-active', 'is-next', 'is-prev', 'transition');
@@ -22,15 +36,6 @@ function goToSlide(index, side) {
 
   });
 
-  // if(side == 'rigth' && currentIndex == 0){
-  //   slides[slides.length - 1].classList.remove('is-next');
-  //   slides[slides.length - 1].classList.add('is-prev');
-  // };
-  //
-  // if(side == 'left' && currentIndex == slides.length - 1){
-  //   slides[0].classList.remove('is-prev');
-  //   slides[0].classList.add('is-next');
-  // };
 
   if (!slides[index]) {
     return false;
@@ -85,15 +90,20 @@ function sliderInit() {
 
   [].forEach.call(slides, function(item) {
     var pin = document.createElement('div');
-    pin.innerText = num;
+    pin.classList.add('pin');
+    var pinDot = document.createElement('div');
+    pinDot.classList.add('pin-dot');
     pin.dataset.num = num;
+    if(num == 1){
+      pinDot.classList.add('active-pin');
+    };
     num++;
 
     pin.addEventListener('click', function() {
-      goToSlide(+this.innerText - 1);
+      goToSlide(+this.dataset.num - 1);
     });
-
     pins.appendChild(pin);
+    pin.appendChild(pinDot);
   });
 
   element.appendChild(pins);
