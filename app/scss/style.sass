@@ -71,12 +71,30 @@ body
   ul
     list-style-type: none
 
-    li:nth-child(2n)
+    > li:nth-child(2n)
       background-color: #f4f3f3
+
+    li::before
+      content: ""
+      position: absolute
+      z-index: 3
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background: #c7c7c7
+      transform: scaleX(0)
+      transform-origin: 0 50%
+      transition: .5s ease
+      max-height: 48px
+
+    li:hover::before
+      transform: scaleX(1)
 
     li
       position: relative
       z-index: 3
+      cursor: pointer
 
       .list-item
         display: flex
@@ -199,9 +217,8 @@ body
 
 .block-title
   display: flex
-  min-height: 50px
   align-items: center
-  padding-left: 20px
+  padding: 15px 20px
   color: white
   background-color: #740311
   font-size: 18px
@@ -368,6 +385,7 @@ body
       list-style-type: none
 
       li
+        margin: 15px 5px
 
         a
           font-size: 14px
@@ -375,11 +393,9 @@ body
           text-transform: uppercase
           color: #af5b5b
           display: block
-          padding: 15px 5px
 
 .m-b-30
   margin-bottom: $v-step
-  margin-bottom: 30px
 
 
 @import 'breakpoints'
@@ -392,8 +408,10 @@ body
   width: 100%
   display: flex
   flex-wrap: wrap
-  overflow: auto
-  height: 300px
+  overflow-y: auto
+  overflow-x: hidden
+  height: 100vh
+  max-height: calc(63px * 8)
 
   ul
     width: 100%
