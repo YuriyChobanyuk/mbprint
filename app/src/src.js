@@ -157,15 +157,14 @@ menuOpener.addEventListener('click', function(){
   document.querySelector('#searchitem').classList.toggle('set-order');
 });
 
-
-
 activateSearchBtn.addEventListener('click', function(){
+  console.log(true);
   searchField.classList.add('active-search');
   activateSearchBtn.classList.add('lower-index');
 });
 
 document.getElementById('outer-container').onclick = function(e) {
-    if(e.target != searchField && e.target != submitSearch && e.target != activateSearchBtn) {
+    if(e.target != searchField && e.target != submitSearch && e.target != activateSearchBtn && e.target != menuOpener) {
         searchField.classList.remove('active-search');
         activateSearchBtn.classList.remove('lower-index');
     };
