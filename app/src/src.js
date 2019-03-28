@@ -148,6 +148,8 @@ var cards = document.querySelectorAll('.card__img');
 var activateSearchBtn = document.querySelector('.activ-search-btn');
 var searchField = document.querySelector('.search-field');
 var submitSearch = document.querySelector('.submit');
+var activateSearchBtnIcon = document.querySelector('.activ-search-btn i');
+console.log(activateSearchBtnIcon);
 
 menuOpener.addEventListener('click', function(){
   menu.classList.toggle('show');
@@ -158,13 +160,17 @@ menuOpener.addEventListener('click', function(){
 });
 
 activateSearchBtn.addEventListener('click', function(){
-  console.log(true);
+  searchField.classList.add('active-search');
+  activateSearchBtn.classList.add('lower-index');
+});
+
+activateSearchBtnIcon.addEventListener('click', function(){
   searchField.classList.add('active-search');
   activateSearchBtn.classList.add('lower-index');
 });
 
 document.getElementById('outer-container').onclick = function(e) {
-    if(e.target != searchField && e.target != submitSearch && e.target != activateSearchBtn && e.target != menuOpener) {
+    if(e.target != searchField && e.target != submitSearch && e.target != activateSearchBtn && e.target != menuOpener && e.target != activateSearchBtnIcon) {
         searchField.classList.remove('active-search');
         activateSearchBtn.classList.remove('lower-index');
     };
