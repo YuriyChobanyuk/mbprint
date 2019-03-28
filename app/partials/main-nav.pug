@@ -8,3 +8,9 @@ nav.main-nav.default#menu
           p #{item}
           each elem in '123456'
             span(class="test"+elem)
+    li#searchitem
+      form(action="#")#searchform
+        input(type="search" name="search").search-field
+        .button-container
+          button(type="submit" name="submit").submit
+          button(name="activation-btn").activ-search-btn

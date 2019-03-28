@@ -18,11 +18,11 @@ mixin news(item)
         |#{item.text}
 
 mixin sideMenu(item)
-  li
+  li.first-item
     .list-item
       a(href="#") #{item.name}
       .sub-menu-opener
-        img(src="img/arrow.png")
+        .sub-menu-opener__rotator
     ul
       each elem in item.sublist
         li 

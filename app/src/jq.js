@@ -9,7 +9,7 @@ $(document).ready(function(){
       $menu.removeClass("show");
     };
 
-    if ( $(this).scrollTop() > $heigthToTop && $menu.hasClass("default") ){
+    if ( $(this).scrollTop() > $heigthToTop || $(this).scrollTop() > 50  && $menu.hasClass("default") ){
       $menu.removeClass("default").addClass("fixed");
 
       if ($viewWidth > 1200) {

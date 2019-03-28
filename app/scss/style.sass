@@ -71,10 +71,10 @@ body
   ul
     list-style-type: none
 
-    > li:nth-child(2n)
+    .first-item:nth-child(2n)
       background-color: #f4f3f3
 
-    li::before
+    .first-item::before
       content: ""
       position: absolute
       z-index: 3
@@ -88,7 +88,7 @@ body
       transition: .5s ease
       max-height: 48px
 
-    li:hover::before
+    .first-item:hover::before
       transform: scaleX(1)
 
     li
@@ -113,13 +113,20 @@ body
         .sub-menu-opener
           max-width: 15%
           min-width: 40px
-          margin: auto
           flex: 1 1 auto
+          position: relative
 
-          img
-            display: block
-            max-width: 30px
-            transition: .5s ease all
+          &__rotator
+            width: 10px
+            height: 10px
+            border-top: 1px solid black
+            border-right: 1px solid black
+            position: absolute
+            top: 40%
+            left: 25%
+            transform: rotate(-225deg)
+            transition: .3s ease all
+
 
       ul
         transition: .5s ease all
@@ -143,6 +150,10 @@ body
             text-transform: uppercase
             padding-left: 20px
 
+
+.rotator-change
+  top: 50% !important
+  transform: rotate(-45deg) !important
 
 .news
   padding: 30px 0
@@ -269,7 +280,12 @@ body
 
     li
       flex: 1 1 auto
+      order: 1
       border: 1px solid #c6c6c6
+
+      &:last-child
+        flex: none
+        @import 'search'
 
       a
         position: relative
@@ -292,7 +308,7 @@ body
           display: block
           width: 34%
           height: 50%
-          transition: .5s ease-in all
+          transition: .3s ease-in all
           background-color: white
           border: none
           opacity: 0
@@ -328,6 +344,9 @@ body
         span
           opacity: 1
           transform: scale(1)
+
+.set-order
+  order: 0 !important
 
 .kat
   max-width: 100%
@@ -411,7 +430,7 @@ body
   overflow-y: auto
   overflow-x: hidden
   height: 100vh
-  max-height: calc(63px * 8)
+  max-height: calc(63px * 9)
 
   ul
     width: 100%

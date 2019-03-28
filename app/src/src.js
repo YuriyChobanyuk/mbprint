@@ -7,7 +7,6 @@ var menuOpener = document.querySelector(".menuOpener");
 function goToSlide(index, side) {
   var currentIndex = [].indexOf.call(slides, element.querySelector('.is-active'));
   pinarr = document.querySelectorAll('.pin-dot');
-  console.log(pinarr);
 
   [].forEach.call(pinarr, function(item){
     item.classList.remove('active-pin');
@@ -50,15 +49,16 @@ var subMenuOpeners = document.querySelectorAll('.sub-menu-opener');
   item.addEventListener('click', function() {
 
     let parent = this.parentElement.parentElement;
-    let rotator = parent.querySelector('.sub-menu-opener img');
+    let rotator = parent.querySelector('.sub-menu-opener__rotator');
     let listHeigth = 0;
     let sub = parent.querySelector('ul');
 
     sub.classList.toggle('is-visible');
     parent.classList.toggle('active');
+    rotator.classList.toggle('rotator-change');
 
     if (sub.classList.contains('is-visible')) {
-      rotator.style.transform = "rotate(180deg)";
+
       let subLinks = sub.querySelectorAll('.active ul li a');
 
       for (var i = 0; i < subLinks.length; i++) {
@@ -72,7 +72,6 @@ var subMenuOpeners = document.querySelectorAll('.sub-menu-opener');
       sub.style.height = listHeigth + "px";
 
     } else {
-      rotator.style.transform = "rotate(0)"
       sub.style.height = "0px";
     }
 
@@ -146,6 +145,28 @@ var cards = document.querySelectorAll('.card__img');
 
 });
 
+var activateSearchBtn = document.querySelector('.activ-search-btn');
+var searchField = document.querySelector('.search-field');
+var submitSearch = document.querySelector('.submit');
+
 menuOpener.addEventListener('click', function(){
   menu.classList.toggle('show');
+  searchField.classList.toggle('show-input');
+  activateSearchBtn.classList.toggle('lower-index');
+  document.querySelector('.button-container').classList.toggle('show-buttons');
+  document.querySelector('#searchitem').classList.toggle('set-order');
 });
+
+
+
+activateSearchBtn.addEventListener('click', function(){
+  searchField.classList.add('active-search');
+  activateSearchBtn.classList.add('lower-index');
+});
+
+document.getElementById('outer-container').onclick = function(e) {
+    if(e.target != searchField && e.target != submitSearch && e.target != activateSearchBtn) {
+        searchField.classList.remove('active-search');
+        activateSearchBtn.classList.remove('lower-index');
+    };
+};
